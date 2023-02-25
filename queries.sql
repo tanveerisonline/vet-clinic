@@ -1,5 +1,4 @@
 /*Queries that provide answers to the questions from all projects.*/
-
 SELECT * FROM animals WHERE name LIKE '%mon';
 SELECT name FROM animals WHERE date_of_birth >= '2016-01-01' AND date_of_birth <= '2019-12-31';
 SELECT name FROM animals WHERE neutered = true AND escape_attempts < 3;
@@ -11,21 +10,27 @@ SELECT name FROM animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
 
 /* Query to update and read the animals table data */
-
 BEGIN;
 UPDATE animals
 SET species = 'unspecified';
 ROLLBACK;
 
+SELECT species from animals; -- verify that change was rolled back
+
 BEGIN;
 UPDATE animals
 SET species = 'digimon'
-WHERE name Like '%mon';
+WHERE name LIKE '%mon';
 
 UPDATE animals
 SET species = 'pokemon'
 WHERE species IS NULL;
+
+SELECT species from animals; -- verify that change was made
+
 COMMIT;
+
+SELECT species from animals; -- verify that change persists after commit
 
 BEGIN;
 DELETE FROM animals;
@@ -42,7 +47,6 @@ SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 COMMIT;
 
 /* Query to select animals table data with specific condition and also count them */
-
 SELECT COUNT(*) FROM animals;
 SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
 SELECT ROUND(AVG(weight_kg)::numeric, 2) FROM animals;
