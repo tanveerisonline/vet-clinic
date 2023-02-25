@@ -8,27 +8,21 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
-- [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 [Vet Clinic] <a name="about-project"></a>
 
-> Animals Database
+> Vet clinic is an educational Database project where I'll use a relational database to create the data structure for a vet clinic.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -37,7 +31,7 @@
 > Following technologies have been used in this project.
 
 <details>
-  <summary>Server</summary>
+  <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">Postgres</a></li>
   </ul>
@@ -47,7 +41,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-> This project is a React Single Page App.
+> This is a Vet clinic educational project where I'll use a relational database to create the data structure for a vet clinic..
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,14 +80,6 @@ Use npm install after cloning this project
 - [ ] Copy index.html file path and paste it in your browser url.
 - [ ] now the project will be running.
 
-### Deployment
-
-You can deploy this project using:
-
-Github Pages.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
@@ -104,15 +90,7 @@ Github Pages.
 
 - GitHub: [@tanveerisonline ](https://github.com/tanveerisonline)
 - Twitter: [@Tanveer Ahmad](https://twitter.com/Tanveer98589023)
-- LinkedIn: [Tanveer Ahmad](https://www.linkedin.com/in/tanveer-ahmad-899462211/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-> Following are a few features i will add to the project in future.
+- LinkedIn: [Tanveer Ahmad](https://www.linkedin.com/in/tanveerisonline/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -141,15 +119,5 @@ If you're committed to making the world a better place, please support our proje
 - I would like to give credit to the following people who have inspired my codebase:
 
 - [] The Whole Microverse Team - thank you so much for this great learning platform.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
-
-- **How can I get support?**
-
-  - If you have any questions, please contact me via email.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
