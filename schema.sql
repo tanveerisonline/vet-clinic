@@ -1,8 +1,13 @@
+/* Database schema to keep the structure of entire database. */
+
 CREATE TABLE animals (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+   id bigserial PRIMARY KEY,
+    name  VARCHAR(100) NOT NULL,
     date_of_birth DATE,
-    escape_attempts INTEGER,
+    escape_attempts INT,
     neutered BOOLEAN,
-    weight_kg DECIMAL(4, 2)
+    weight_kg Decimal
 );
+
+ALTER TABLE animals
+ADD species VARCHAR(255);
