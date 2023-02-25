@@ -8,14 +8,14 @@ SELECT name FROM animals WHERE neutered = true;
 SELECT * FROM animals WHERE name != 'Gabumon';
 SELECT name FROM animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
-
 /* Query to update and read the animals table data */
 BEGIN;
-UPDATE animals
-SET species = 'unspecified';
+SELECT species FROM animals; -- verify original values
+UPDATE animals SET species = 'unspecified';
+SELECT species FROM animals; -- verify changes made
 ROLLBACK;
-
-SELECT species from animals; -- verify that change was rolled back
+SELECT species FROM animals; -- verify that change was rolled back
+COMMIT;
 
 BEGIN;
 UPDATE animals
@@ -29,12 +29,14 @@ WHERE species IS NULL;
 SELECT species from animals; -- verify that change was made
 
 COMMIT;
-
 SELECT species from animals; -- verify that change persists after commit
 
 BEGIN;
-DELETE FROM animals;
+DELETE FROM animals WHERE species = 'unspecified';
+SELECT COUNT(*) FROM animals; -- verify that the delete occurred
+
 ROLLBACK;
+SELECT COUNT(*) FROM animals; -- verify that the rollback happened
 
 BEGIN;
 DELETE FROM animals WHERE date_of_birth > '2022-01-01';
@@ -47,12 +49,22 @@ SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 COMMIT;
 
 /* Query to select animals table data with specific condition and also count them */
-SELECT COUNT(*) FROM animals;
+SELECT COUNT() FROM animals;
 SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
 SELECT ROUND(AVG(weight_kg)::numeric, 2) FROM animals;
-SELECT name FROM animals 
-  WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals);
-SELECT species, MIN(weight_kg), MAX(weight_kg) 
-  FROM animals GROUP BY species;
-SELECT species, ROUND(AVG(escape_attempts)::numeric, 0) FROM animals 
-  WHERE date_of_birth >= '1990-01-01' AND date_of_birth <= '2000-12-31' GROUP BY species;
+SELECT name FROM animals
+WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals);
+SELECT species, MIN(weight_kg), MAX(weight_kg)
+FROM animals GROUP BY species;
+SELECT species, ROUND(AVG(escape_attempts)::numeric, 0) FROM animals
+WHERE date_of_birth >= '1990-01-01' AND date_of_birth <= '2000-12-31' GROUP BY species;
+
+/* Query to verify changes made before and after the commit */
+BEGIN;
+SELECT species from animals; -- verify original values
+UPDATE animals SET species = 'test';
+SELECT species from animals; -- verify changes made
+ROLLBACK;
+SELECT species from animals; -- verify that change was rolled back
+COMMIT;
+SELECT species from animals; -- verify that change persists after commit
